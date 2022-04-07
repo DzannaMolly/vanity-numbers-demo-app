@@ -82,6 +82,10 @@ resource "aws_api_gateway_deployment" "example" {
   lifecycle {
     create_before_destroy = true
   }
+
+  depends_on = [
+    aws_api_gateway_method.test_method
+  ]
 }
 
 #

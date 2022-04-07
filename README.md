@@ -84,7 +84,7 @@ The backend consists of two parts:
 - **AWS Connect** TF resource creates only instance and Lambda function association. The `Contact Flow` is created mannualy through the console wizard. That flow is then exported as a json file which we imported in our repo as a separate file. 
 - **DynamoDB** creates a Table with attribute called `id` which is our Partition key. Basic configuration that will serve our purpose for this project.
 - **Lambda** resources that contains our backend source code which we integrated with DynamoDB and later with Api Gateway as well, so that when a trigger occurs it knows to which resources is dependent. 
-- **Api Gateway** resources uses a GET vanity numbers endpoint that triggers the get Lambda and serves the vanity numbers to the user.Also, contains depended resources for the service to be completely deployed along with Self-Signed TLS Certificate for Testing and domain name `uri` that can be used for testing our requests (since we don't have a FrontEnd application).
+- **Api Gateway** resources uses a GET vanity numbers endpoint that triggers the get Lambda and serves the vanity numbers to the user.Also, contains depended resources for the service to be completely deployed along with Self-Signed TLS Certificate for Testing and domain name `uri` that can be used for testing our requests (since we don't have a FrontEnd application). That domain can be used in Postman for retriving our data.
 
 **NOTE:** At the end of our final deployment of our resources and succesfull testing that the numbers are written in the DynamoDB table, we should claim a number in the AWS Connect Dashboard 
 

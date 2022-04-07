@@ -9,17 +9,17 @@ const ddb = new AWS.DynamoDB()
 */
 const getDynamoDBItems = async (number) => {
     return new Promise((resolve, reject) => {
-        ddb.query({
+        ddb.scan({
             TableName: process.env.DYNAMODB_TABLE || 'dummy-table',
-            ExpressionAttributeNames: {
-                '#CustomerNumber': 'id'
-            },
-            ExpressionAttributeValues: {
-                ':cn': {
-                    'S': number
-                }
-            },
-            KeyConditionExpression: '#CustomerNumber = :cn'
+            // ExpressionAttributeNames: {
+            //     '#CustomerNumber': 'id'
+            // },
+            // ExpressionAttributeValues: {
+            //     ':cn': {
+            //         'S': number
+            //     }
+            // },
+            // KeyConditionExpression: '#CustomerNumber = :cn'
         }, function(error, data) {
             if (error) {
                 reject(error)
@@ -27,7 +27,7 @@ const getDynamoDBItems = async (number) => {
                 if (!data.Items || data.Items.length === 0) {
                     resolve(null)
                 } else {
-                    resolve(data.Items[0])
+                    resolve(data.Items)
                 }
             }
         })

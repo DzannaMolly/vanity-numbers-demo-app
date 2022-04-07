@@ -38,7 +38,7 @@ exports.handler = async (event, context) => {
                 }
 
                 result.push({
-                    'customer-number': reversedVanityNumbers[i]['customer-number']['S'],
+                    'customer-number': reversedVanityNumbers[i]['id']['S'],
                     'vanity-numbers': numbers
                 }) 
             }

@@ -4,7 +4,7 @@ resource "aws_lambda_permission" "allow_api_gateway" {
   statement_id  = "AllowExecutionFromApiGateway"
   action        = "lambda:InvokeFunction"
   principal     = "apigateway.amazonaws.com"
-  source_arn    = "arn:aws:execute-api:${var.aws_region}:${var.account_id}:${aws_api_gateway_rest_api.test_api.id}/*/${aws_api_gateway_integration.test_test-get-integration.integration_http_method}${aws_api_gateway_resource.test_resource.path}"
+  source_arn    = "arn:aws:execute-api:${var.aws_region}:${var.account_id}:${aws_api_gateway_rest_api.test_api.id}/*/${aws_api_gateway_integration.test_integration.integration_http_method}${aws_api_gateway_resource.test_resource.path}"
 }
 
 #Create Api Gateway Rest Api

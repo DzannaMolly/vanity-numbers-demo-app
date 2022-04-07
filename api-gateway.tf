@@ -35,7 +35,7 @@ resource "aws_api_gateway_integration" "test_integration" {
   http_method             = aws_api_gateway_method.test_method.http_method
   type                    = "AWS"
   uri                     = "arn:aws:apigateway:${var.aws_region}:lambda:path/2015-03-31/functions/arn:aws:lambda:${var.aws_region}:${var.account_id}:function:${aws_lambda_function.vanity_number_get_lambda.function_name}/invocations"
-  integration_http_method = aws_api_gateway_method.test_method.http_method
+  integration_http_method = "POST"
 }
 
 #Provides an HTTP Method Response for an API Gateway Resource

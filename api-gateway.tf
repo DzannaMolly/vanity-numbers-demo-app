@@ -105,4 +105,9 @@ resource "aws_api_gateway_base_path_mapping" "example" {
   api_id      = aws_api_gateway_rest_api.test_api.id
   domain_name = aws_api_gateway_domain_name.example.domain_name
   stage_name  = "example"
+
+  depends_on = [
+    aws_api_gateway_deployment.example,
+    aws_api_gateway_stage.example
+  ]
 }
